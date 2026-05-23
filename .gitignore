@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# AWS credentials (NEVER commit these!)
+.aws/
+.env
+credentials
+
+# Data files (too large)
+data/
+*.csv
+*.xlsx
+
+# Models (too large)
+models/
+*.pkl
+*.joblib
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+.env.local

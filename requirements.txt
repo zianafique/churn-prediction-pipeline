@@ -1,0 +1,33 @@
+# Core data science
+numpy
+pandas
+scikit-learn
+
+# ML models
+xgboost
+lightgbm
+
+# ML Ops
+mlflow
+boto3
+
+# Web API
+fastapi
+uvicorn
+pydantic
+
+# Testing
+pytest
+pytest-cov
+
+# Data visualization
+matplotlib
+seaborn
+plotly
+
+# Dashboard
+streamlit
+
+# Utilities
+python-dotenv
+requests
