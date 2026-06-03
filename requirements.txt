@@ -1,33 +1,18 @@
-# Core data science
+# Core data science libraries
 numpy
 pandas
 scikit-learn
 
-# ML models
-xgboost
-lightgbm
-
-# ML Ops
-mlflow
-boto3
-
-# Web API
+# Web API framework
 fastapi
 uvicorn
 pydantic
+pydantic-core
 
-# Testing
-pytest
-pytest-cov
-
-# Data visualization
-matplotlib
-seaborn
-plotly
-
-# Dashboard
-streamlit
+# AWS SDK (needed for Step 11 deployment)
+boto3
 
 # Utilities
-python-dotenv
 requests
+python-dotenv
+python-multipart
