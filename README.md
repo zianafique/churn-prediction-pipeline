@@ -156,16 +156,8 @@ This system enables:
 
 ## 📧 Contact & Social
 
-- GitHub: [your-github](https://github.com/afiquezian)
-- LinkedIn: [your-linkedin](https://linkedin.com/in/afiquezian)
+- [Github](https://github.com/zianafique)
+- [LinkedIn](https://linkedin.com/in/afiquezian)
 - Email: afiquezian@gmail.com
-
-## 📄 License
-
-This project is licensed under the MIT License - see LICENSE file for details.
-
----
-
-**Built with ❤️ as a portfolio project showcasing ML engineering skills**
 
 ⭐ If you found this helpful, please star the repository!
