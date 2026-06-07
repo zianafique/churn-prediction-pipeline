@@ -11,6 +11,9 @@ import os
 import traceback
 import logging
 import warnings
+import json
+from datetime import datetime
+import logging
 
 # Suppress sklearn warnings
 warnings.filterwarnings("ignore")
@@ -18,6 +21,11 @@ warnings.filterwarnings("ignore")
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Setup logging
+logging.basicConfig(
+    filename="api_metrics.log", level=logging.INFO, format="%(asctime)s - %(message)s"
+)
 
 app = FastAPI(
     title="Churn Prediction API",
@@ -307,7 +315,15 @@ def predict_churn(customer: CustomerData):
         logger.info("Making prediction with model...")
         prediction = model.predict(df)[0]
         probability = model.predict_proba(df)[0][1]
-
+        # LOG THE PREDICTION
+        metrics = {
+            "timestamp": datetime.now().isoformat(),
+            "input_features": customer.dict(),
+            "prediction": prediction,
+            "probability": float(probability),
+            "status": "success",
+        }
+        logging.info(json.dumps(metrics))
         logger.info(f"✅ Prediction: {prediction}, Probability: {probability:.4f}")
 
         # ===== STEP 4: GENERATE RECOMMENDATION =====
@@ -325,7 +341,15 @@ def predict_churn(customer: CustomerData):
             churn_probability=round(float(probability), 4),
             recommendation=rec,
         )
-
+    except Exception as e:
+        # LOG ERRORS
+        error_metrics = {
+            "timestamp": datetime.now().isoformat(),
+            "error": str(e),
+            "status": "error",
+        }
+        logging.error(json.dumps(error_metrics))
+        raise
     except ValueError as e:
         logger.error(f"Data error: {str(e)}")
         raise HTTPException(status_code=400, detail=str(e))
